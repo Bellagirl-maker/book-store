@@ -1,0 +1,29 @@
+.nav-bar {
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid grey;
+}
+
+.nav-logo-links {
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  cursor: pointer;
+  margin-left: 5rem;
+}
+
+.logo {
+  color: #0290ff;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.link {
+  text-decoration: none;
+}
