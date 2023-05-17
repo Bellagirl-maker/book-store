@@ -4,11 +4,11 @@ import BookContainer from './BookContainer';
 import Books from './Books';
 
 const BookDisplay = () => {
-  const { book } = useSelector((store) => store.book);
+  const { books } = useSelector((store) => store.books);
 
   return (
     <div className="book-display">
-      {book.map((book) => (
+      {books.map((book) => (
         <BookContainer
           key={book.item_id}
           item={book.item_id}

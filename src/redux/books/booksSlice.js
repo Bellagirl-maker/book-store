@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const booksSlice = createSlice({
-  name: 'books',
-  initialState:
+const initialState = {
+  books:
   [
     {
       item_id: 'item1',
@@ -23,15 +22,24 @@ const booksSlice = createSlice({
       category: 'Nonfiction',
     },
   ],
+};
+
+const booksSlice = createSlice({
+  name: 'book',
+  initialState,
+
   reducers: {
     addBook: (state, action) => {
-      state.push(action.payload);
+      state.books.push({
+        item_id: action.payload.id,
+        title: action.payload.title,
+        author: action.payload.author,
+        category: action.payload.category,
+      });
     },
     removeBook: (state, action) => {
-      const index = state.findIndex((book) => book.id === action.payload);
-      if (index !== -1) {
-        state.splice(index, 1);
-      }
+      state.books = state.books
+        .filter((book) => book.item_id !== action.payload);
     },
   },
 });
