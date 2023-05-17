@@ -1,22 +1,37 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import { removeBook } from '../redux/books/booksSlice';
 
-function BookContainer() {
+const BookContainer = ({
+  item, title, author, category,
+}) => {
   const [complete, setComplete] = useState('0');
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setComplete('90%');
   }, []);
+
+  const handleRemoveBook = (id) => {
+    dispatch(removeBook(id));
+  };
+
   return (
     <div className="book-container">
       <div className="book-details">
-        <div className="book-category">Action</div>
-        <div className="book-title">The Hunger Games</div>
-        <div className="book-author">Suzzane Collins</div>
+        <div className="book-category">{category}</div>
+        <div className="book-title">{title}</div>
+        <div className="book-author">{author}</div>
         <div className="book-buttons">
           <button type="button" className="book-btn">
             Comments
           </button>
-          <button type="button" className="book-btn">
+          <button
+            type="button"
+            className="book-btn"
+            onClick={() => handleRemoveBook(item)}
+          >
             Remove
           </button>
           <button type="button" className="book-btn">
@@ -39,6 +54,13 @@ function BookContainer() {
       </div>
     </div>
   );
-}
+};
+
+BookContainer.propTypes = {
+  item: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+};
 
 export default BookContainer;
