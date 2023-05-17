@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Categories from './components/Categories';
 import BookDisplay from './components/BookDisplay';
@@ -17,4 +18,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect()(App);
