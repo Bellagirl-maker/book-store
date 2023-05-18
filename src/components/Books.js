@@ -36,16 +36,14 @@ const Books = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <select
-          name="author"
-          id="book"
+        <input
+          type="text"
+          className="book-author"
+          placeholder="Author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-        >
-          <option value="action">Action</option>
-          <option value="science">Science</option>
-          <option value="economy">Economy</option>
-        </select>
+        />
+
         <button
           type="submit"
           onClick={(e) => {

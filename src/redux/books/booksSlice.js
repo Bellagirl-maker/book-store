@@ -10,7 +10,7 @@ const initialState = {
 
 };
 
-export const getBooks = createAsyncThunk('book/get', async () => {
+export const fetchBooks = createAsyncThunk('book/get', async () => {
   try {
     const response = await axios.get(baseUrl);
     return response.data;
@@ -41,11 +41,11 @@ export const booksSlice = createSlice({
   name: 'book',
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(getBooks.pending, (state) => {
+    builder.addCase(fetchBooks.pending, (state) => {
       state.isLoading = true;
     });
 
-    builder.addCase(getBooks.fulfilled, (state, action) => {
+    builder.addCase(fetchBooks.fulfilled, (state, action) => {
       state.isLoading = false;
       state.books = Object.keys(action.payload).map((key) => ({
         item_id: key,
@@ -53,7 +53,7 @@ export const booksSlice = createSlice({
       }));
     });
 
-    builder.addCase(getBooks.rejected, (state, action) => {
+    builder.addCase(fetchBooks.rejected, (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
     });
