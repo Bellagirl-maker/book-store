@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { removeBook } from '../redux/books/booksSlice';
+import { deleteBook } from '../redux/books/booksSlice';
 
 const BookContainer = ({
   item, title, author, category,
@@ -14,7 +14,7 @@ const BookContainer = ({
   }, []);
 
   const handleRemoveBook = (id) => {
-    dispatch(removeBook(id));
+    dispatch(deleteBook(id));
   };
 
   return (
