@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
+import '../styles/Navbar.css';
+import { MdPerson } from 'react-icons/md';
 
 const Navbar = () => (
   <div className="nav-bar">
@@ -20,6 +21,7 @@ const Navbar = () => (
           </li>
         </ul>
       </div>
+      <div className="user-icon"><MdPerson className="user" /></div>
     </nav>
   </div>
 );
